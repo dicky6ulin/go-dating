@@ -5,70 +5,60 @@ import (
 )
 
 func main() {
-	fmt.Println("Hello World")
 
-	//================================================================
-	// variable => Sebuah penampung nilai
+	//Defer
 
-	// 1. variable Declaration
-	var number int8 = 66
-	var name string = "Dicky Agus Setiawan"
-	fmt.Println(number)
-	fmt.Println(name)
+	// defer fmt.Println("start")
+	// defer fmt.Println("1")
+	// defer fmt.Println("2")
+	// fmt.Println("Proses")
 
-	var number2 = 2.66
-	fmt.Printf("Bilangan Desimal = %f\n", number2)
-	fmt.Printf("Bilangan Desimal = %.2f\n", number2)
+	// Proses
+	// 2
+	// 1
+	// start
 
-	var isNumber bool = false
-	fmt.Println(isNumber)
+	//=================================================================
+	// ARRAY
 
-	// 2. Type inference
-	nama := "Agus"
-	fmt.Println(nama)
+	var numbers [3]int
 
-	// 3. tidak bisa di reAsign
-	const jariJari = 22 / 7
-	fmt.Println(jariJari)
+	numbers[0] = 1
+	numbers[1] = 2
+	numbers[2] = 3
 
-	//================================================================
-	// Scanner
+	for i, v := range numbers {
+		fmt.Printf("Index : %d , Value : %d\n", i, v)
+	}
 
-	var angka int
-	fmt.Print("Masukan Angka : ")
-	fmt.Scan(&angka)
-	fmt.Println("Angka adalah : ", angka)
+	fmt.Println("===========")
 
-	// scanner := bufio.NewScanner(os.Stdin)
-	// fmt.Print("Masukan Angka : ")
-	// scanner.Scan()
-	// input := scanner.Text()
-	// inputParse, _ := strconv.Atoi(input)
-	// fmt.Println("Angka adalah : ", inputParse)
+	numbers1 := [3]int{1, 2, 3}
+	for i, v := range numbers1 {
+		fmt.Printf("Index : %d , Value : %d\n", i, v)
+	}
 
-	fmt.Println("===================================================")
+	fmt.Println("===========")
 
-	//Kondisi
-	//for
-	for i := 0; i <= 10; i++ {
+	var numbers2 = [3]int{1, 2, 3}
+	for i, v := range numbers2 {
+		fmt.Printf("Index : %d , Value : %d\n", i, v)
+	}
 
-		if i%2 == 0 {
-			fmt.Println(i)
+	fmt.Println("=========== Variadic ==========")
+
+	var numbersVariadic = [...]int{1, 2, 3}
+	for _, v := range numbersVariadic {
+		fmt.Printf("Value : %d\n", v)
+	}
+
+	fmt.Println("=========== Array Multidimensi ==========")
+
+	var numbersAM = [2][5]int{{1, 2, 3, 4, 5}, {6, 7, 8}}
+	for _, row := range numbersAM {
+		for _, numberSatuan := range row {
+			fmt.Printf("Value : %d\n", numberSatuan)
 		}
 	}
 
-	fmt.Println("===================================================")
-	//while
-
-	a := 0
-	for a <= 10 {
-		if a%2 == 0 {
-			fmt.Println(a)
-		}
-		a++
-	}
-
-	fmt.Println("===================================================")
-
-	//for ever
 }
